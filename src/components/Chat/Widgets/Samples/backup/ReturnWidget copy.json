@@ -1,0 +1,44 @@
+{
+  "type": "template",
+  "payload": {
+    "template_type": "generic",
+    "elements": [
+      {
+        "template_type": "list",
+        "title": "Would you like a replacement or return?",
+        "elements": [
+          {
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "Replacement",
+                "payload": "replacement"
+              },
+              {
+                "type": "confirm",
+                "step": "confirm",
+                "title": "Return",
+                "payload": "return"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "template_type": "list",
+        "title": "Proceed to return",
+        "elements": [
+          {
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "Proceed",
+                "payload": "RETURN"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

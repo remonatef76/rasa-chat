@@ -1,0 +1,26 @@
+{
+  "type": "template",
+  "payload": {
+    "template_type": "payment",
+    "elements": {
+      "title": "Payment",
+      "items": [
+        {
+          "title": "Credit / Debit / ATM Card",
+          "payload": "CREDIT_DEBIT_ATM"
+        },
+        {
+          "title": "Net Banking",
+          "payload": "NET_BANKING"
+        },
+        {
+          "title": "Cash on Delivery",
+          "payload": "CASH_ON_DELIVERY"
+        }
+      ],
+      "submit": {
+        "title": "PROCEED"
+      }
+    }
+  }
+}

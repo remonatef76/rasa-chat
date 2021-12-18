@@ -1,0 +1,10 @@
+.custom-rasa-widget-container{
+    .rasa-size-widget{
+        @include defaultBoxStyle;
+
+        .button-container{
+            display: flex;
+            gap: 20px;
+        }
+    }
+}
