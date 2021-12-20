@@ -1,0 +1,37 @@
+{
+  "type": "template",
+  "payload": {
+    "template_type": "list",
+    "title": "Select Size",
+    "elements": [
+      {
+        "buttons": [
+          {
+            "type": "postback",
+            "title": "Small",
+            "payload": "SMALL"
+          },
+          {
+            "type": "postback",
+            "title": "Medium",
+            "payload": "MEDIUM"
+          }
+        ]
+      },
+      {
+        "buttons": [
+          {
+            "type": "postback",
+            "title": "Large",
+            "payload": "LARGE"
+          },
+          {
+            "type": "postback",
+            "title": "Extra Large",
+            "payload": "EXTRA_LARGE"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -26,7 +26,8 @@ import locationOutline from "./Widgets/Samples/LocationOutlineWidget.json";
 /**
  * Test Specific Widget
  */
-const TEST_MODE = "locationOutline";
+const TEST_MODE = false;
+const SAMPLE_SCHEMA = citySelectOutline;
 
 /**
  * Allowed Widgets List
@@ -68,7 +69,7 @@ const widgetsPayloads = {
 const ComponentsManager = (props) => {
   const { data } = props;
   if (TEST_MODE) {
-    data.attachment.payload = widgetsPayloads[TEST_MODE].payload;
+    data.attachment.payload = widgetsPayloads[SAMPLE_SCHEMA].payload;
   }
 
   let WidgetContent = widgets[data.attachment.payload.template_type];
