@@ -1,0 +1,98 @@
+.custom-rasa-widget-container {
+  .rasa-cart-widget {
+    @include defaultBoxStyle;
+    padding-right: 16px;
+    padding-left: 16px;
+
+    .products {
+      .product-container {
+        width: 237.48px;
+        background: #ffffff;
+        border-radius: 6px;
+        display: flex;
+        padding: 6.5px;
+        margin-bottom: 16px;
+        // align-items: center;
+        gap: 13.5px;
+        .img {
+          width: 49.7px;
+          display: flex;
+          align-items: center;
+          img {
+            border-radius: 7.5px;
+            filter: drop-shadow(-12px 0px 14px rgba(0, 0, 0, 0.2));
+            width: 100%;
+            height: auto;
+          }
+        }
+        .content {
+          text-align: left;
+          color: var(--rasa-black);
+          .title {
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 17px;
+            margin-bottom: 4px;
+          }
+          .desc {
+            font-weight: normal;
+            font-size: 7px;
+            line-height: 11px;
+            margin-bottom: 4px;
+          }
+          .unit {
+            font-weight: 500;
+            font-size: 9px;
+            line-height: 14px;
+          }
+        }
+        .unit-selector {
+          flex: 1;
+          display: flex;
+          justify-content: flex-end;
+          align-items: flex-end;
+          padding-right: 12.5px;
+          .unit-container {
+            display: flex;
+            .minus,
+            .plus {
+              background: #1471f1;
+              border-radius: 1px;
+              color: #fff;
+              cursor: pointer;
+              font-size: 9px;
+              line-height: 0;
+            }
+            .minus,
+            .plus,
+            .value {
+              min-width: 11.5px;
+              height: 13.03px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            .value {
+              background: #f0f0f0;
+              border-radius: 1px;
+              font-weight: 500;
+              font-size: 8px;
+              line-height: 12px;
+              color: #000000;
+              padding: 0px 2px;
+              min-width: 9.5px;
+            }
+          }
+        }
+      }
+    }
+
+    .submit {
+      text-align: left;
+      margin-bottom: 10px;
+      .submit-button {
+        @include yellowButton;
+      }
+    }
+  }
+}

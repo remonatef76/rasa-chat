@@ -1,0 +1,30 @@
+{
+  "type": "template",
+  "payload": {
+    "template_type": "form",
+    "title": "",
+    "class": "btn-center btn-small input-outline btn-outline",
+    "elements": [
+      {
+        "name": "address_information",
+        "input": [
+          {
+            "name": "address_information",
+            "label": "Address Information",
+            "placeholder": "Area"
+          }
+        ]
+      },
+      {
+        "buttons": [
+          {
+            "type": "postback",
+            "title": "Next",
+            "payload": "DYNAMIC_STATE_PAYLOAD",
+            "showText": false
+          }
+        ]
+      }
+    ]
+  }
+}

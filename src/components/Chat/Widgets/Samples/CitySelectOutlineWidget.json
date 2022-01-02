@@ -1,0 +1,88 @@
+{
+  "type": "template",
+  "payload": {
+    "template_type": "form",
+    "title": "",
+    "class": "btn-center btn-small select-outline btn-outline",
+    "elements": [
+      {
+        "name": "city_state_country",
+        "select": [
+          {
+            "name": "city",
+            "items": [
+              {
+                "label": "City",
+                "value": null
+              },
+              {
+                "label": "City 1",
+                "value": "City One"
+              },
+              {
+                "label": "City 2",
+                "value": "City Two"
+              },
+              {
+                "label": "City 3",
+                "value": "City Three"
+              }
+            ]
+          },
+          {
+            "name": "state",
+            "items": [
+              {
+                "label": "State",
+                "value": null
+              },
+              {
+                "label": "City 1",
+                "value": "City One"
+              },
+              {
+                "label": "City 2",
+                "value": "City Two"
+              },
+              {
+                "label": "City 3",
+                "value": "City Three"
+              }
+            ]
+          },
+          {
+            "name": "country",
+            "items": [
+              {
+                "label": "Country",
+                "value": null
+              },
+              {
+                "label": "City 1",
+                "value": "City One"
+              },
+              {
+                "label": "City 2",
+                "value": "City Two"
+              },
+              {
+                "label": "City 3",
+                "value": "City Three"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "buttons": [
+          {
+            "type": "postback",
+            "title": "Next",
+            "payload": "DYNAMIC_STATE_PAYLOAD",
+            "showText": false
+          }
+        ]
+      }
+    ]
+  }
+}

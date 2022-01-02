@@ -1,0 +1,35 @@
+{
+  "type": "template",
+  "payload": {
+    "template_type": "list",
+    "title": "Brand Preference",
+    "elements": [
+      {
+        "buttons": [
+          {
+            "type": "postback",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/2560px-Adidas_Logo.svg.png",
+            "title": "Addidas",
+            "payload": "ADIDAS"
+          },
+          {
+            "type": "postback",
+            "image": "https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Puma_AG.svg/1200px-Puma_AG.svg.png",
+            "title": "Puma",
+            "payload": "PUMA"
+          }
+        ]
+      },
+      {
+        "buttons": [
+          {
+            "type": "postback",
+            "image": "https://logos-world.net/wp-content/uploads/2020/04/Nike-Logo.png",
+            "title": "Nike",
+            "payload": "NIKE"
+          }
+        ]
+      }
+    ]
+  }
+}
