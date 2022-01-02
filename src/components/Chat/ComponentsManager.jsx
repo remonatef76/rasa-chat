@@ -80,9 +80,10 @@ const ComponentsManager = (props) => {
   ) {
     let WigetsContent = [];
     let newProps = [];
-    for (let x = 0; x < data.attachment.payload.elements.length; x++) {
+    let len = data.attachment.payload.elements.length;
+    for (let x = 0; x < len; x++) {
       let widgetData = data.attachment.payload.elements[x];
-      newProps[x] = { ...props };
+      newProps[x] = JSON.parse(JSON.stringify(props));
       newProps[x].data.attachment.payload = widgetData;
 
       let WidgetContent = widgets[widgetData.template_type];
@@ -94,10 +95,17 @@ const ComponentsManager = (props) => {
         ""
       );
 
-      WigetsContent.push(content);
+      WigetsContent.push(
+        <div
+          className="custom-rasa-widget-container"
+          style={{ marginBottom: 20, paddingLeft: x > 0 ? 40 : 0 }}
+        >
+          {content}
+        </div>
+      );
     }
 
-    return <div className="custom-rasa-widget-container">{WigetsContent}</div>;
+    return WigetsContent;
   } else {
     let WidgetContent = widgets[data.attachment.payload.template_type];
     return (
