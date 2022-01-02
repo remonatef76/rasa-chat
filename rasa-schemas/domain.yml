@@ -12,7 +12,54 @@ intents:
 
 responses:
   utter_greet:
-    - text: "Hey! How are you?"
+    - text: ""
+      attachment:
+        {
+          "type": "template",
+          "payload":
+            {
+              "template_type": "generic",
+              "elements":
+                [
+                  {
+                    "title": "Golf",
+                    "subtitle": "Super Slow Sport",
+                    "image_url": "https://static01.nyt.com/images/2020/07/23/sports/23golf-wie-big/23golf-wie-big-videoSixteenByNineJumbo1600.jpg",
+                    "buttons":
+                      [
+                        {
+                          "title": "Golf Link name",
+                          "url": "https://www.golfchannel.com/",
+                          "type": "web_url",
+                        },
+                        {
+                          "title": "Golf postback name",
+                          "type": "postback",
+                          "payload": "/test",
+                        },
+                      ],
+                  },
+                  {
+                    "title": "Cricket",
+                    "subtitle": "Best Game in Town",
+                    "image_url": "https://nnimgt-a.akamaihd.net/transform/v1/crop/frm/silverstone-feed-data/67c54b2a-b43b-4cbd-9a83-cb5208d9a5b5.jpg/r0_0_800_600_w1200_h678_fmax.jpg",
+                    "buttons":
+                      [
+                        {
+                          "title": "Cricket Link name",
+                          "url": "https://youtu.be/_imizBMHN0w",
+                          "type": "web_url",
+                        },
+                        {
+                          "title": "Cricket postback name",
+                          "type": "postback",
+                          "payload": "/greet",
+                        },
+                      ],
+                  },
+                ],
+            },
+        }
 
   utter_cheer_up:
     - text: "Here is something to cheer you up:"
