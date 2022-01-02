@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 
 import size from "./Widgets/Samples/SizeWidget.json";
-import type from "./Widgets/Samples/TypeWidget.json";
+import typeWidget from "./Widgets/Samples/TypeWidget.json";
 import brand from "./Widgets/Samples/BrandWidget.json";
 import cart from "./Widgets/Samples/CartWidget.json";
 import payment from "./Widgets/Samples/PaymentWidget.json";
@@ -22,12 +22,13 @@ import personalInfoOutline from "./Widgets/Samples/PersonalInfoOutlineWidget.jso
 import addressInfoOutline from "./Widgets/Samples/AddreessInfoOutlineWidget.json";
 import citySelectOutline from "./Widgets/Samples/CitySelectOutlineWidget.json";
 import locationOutline from "./Widgets/Samples/LocationOutlineWidget.json";
+import general from "./Widgets/Samples/GeneralWidget.json";
 
 /**
  * Test Specific Widget
  */
-const TEST_MODE = false;
-const SAMPLE_SCHEMA = citySelectOutline;
+const TEST_MODE = true;
+const SAMPLE_SCHEMA = "general";
 
 /**
  * Allowed Widgets List
@@ -43,7 +44,7 @@ const widgets = {
  */
 const widgetsPayloads = {
   size,
-  type,
+  typeWidget,
   brand,
   cart,
   payment,
@@ -64,6 +65,7 @@ const widgetsPayloads = {
   addressInfoOutline,
   citySelectOutline,
   locationOutline,
+  general,
 };
 
 const ComponentsManager = (props) => {
@@ -72,18 +74,44 @@ const ComponentsManager = (props) => {
     data.attachment.payload = widgetsPayloads[SAMPLE_SCHEMA].payload;
   }
 
-  let WidgetContent = widgets[data.attachment.payload.template_type];
-  return (
-    <div className="custom-rasa-widget-container">
-      {WidgetContent ? (
+  if (
+    data.attachment.payload.template_type === "general" &&
+    data.attachment.payload?.elements?.length
+  ) {
+    let WigetsContent = [];
+    let newProps = [];
+    for (let x = 0; x < data.attachment.payload.elements.length; x++) {
+      let widgetData = data.attachment.payload.elements[x];
+      newProps[x] = { ...props };
+      newProps[x].data.attachment.payload = widgetData;
+
+      let WidgetContent = widgets[widgetData.template_type];
+      let content = WidgetContent ? (
         <Suspense fallback={<div>Loading...</div>}>
-          <WidgetContent {...props} />
+          <WidgetContent {...newProps[x]} />
         </Suspense>
       ) : (
         ""
-      )}
-    </div>
-  );
+      );
+
+      WigetsContent.push(content);
+    }
+
+    return <div className="custom-rasa-widget-container">{WigetsContent}</div>;
+  } else {
+    let WidgetContent = widgets[data.attachment.payload.template_type];
+    return (
+      <div className="custom-rasa-widget-container">
+        {WidgetContent ? (
+          <Suspense fallback={<div>Loading...</div>}>
+            <WidgetContent {...props} />
+          </Suspense>
+        ) : (
+          ""
+        )}
+      </div>
+    );
+  }
 };
 
 export default ComponentsManager;

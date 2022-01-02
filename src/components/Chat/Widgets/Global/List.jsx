@@ -7,6 +7,7 @@ const List = (props) => {
   const payload = data.attachment.payload;
   const TEMPLATE_TYPE = payload.template_type;
   const MESSAGE_ID = data.id;
+  console.log(props, payload);
   return (
     <div
       className={`rasa-list-widget rasa-green rasa-custom-chat-box ${payload.class}`}
