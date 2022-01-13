@@ -71,7 +71,7 @@
                             ]
                         },
                         {
-                            "done": true,
+                            "done": false,
                             "showBar": true,
                             "title": {
                                 "text": "Delivered |"

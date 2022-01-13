@@ -17,9 +17,19 @@ const Fun = ({
     setShow(!show);
   };
 
-  useEffect(() => {
-    console.log(show);
-  }, show);
+  const barsContent = [];
+
+  for (let bar of payloadData.body) {
+    if (bar.showBar) {
+      barsContent.push(
+        <div className={`bar ${bar.done ? "bar-done" : "bar-none"}`}>
+          <div className="bar-bullet"></div>
+          <div className="bar-line"></div>
+          <span className="bar-title">{bar.title.text.replace("|", "")}</span>
+        </div>
+      );
+    }
+  }
 
   const data = (
     <div className="order-status" key={index + TEMPLATE_TYPE + show + "status"}>
@@ -31,6 +41,7 @@ const Fun = ({
             src={arrowDown}
           />
         </div>
+        <div className="bars">{barsContent}</div>
       </div>
     </div>
   );
