@@ -106,6 +106,23 @@
   }
 }
 
+.rasa-download {
+  width: 30px;
+  height: 30px;
+  background: var(--rasa-secondary-buttons-bg);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  img {
+    width: 14.15px;
+    height: 15.41px;
+  }
+}
+
 .rasa-share-location-bottom {
   position: absolute;
   bottom: 30px;
@@ -116,6 +133,20 @@
 .rasa-share-location-top {
   position: absolute;
   top: 80px;
+  right: 0px;
+  margin-right: -40px;
+}
+
+.rasa-download-location-bottom {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  margin-right: -40px;
+}
+
+.rasa-download-location-top {
+  position: absolute;
+  top: 30px;
   right: 0px;
   margin-right: -40px;
 }

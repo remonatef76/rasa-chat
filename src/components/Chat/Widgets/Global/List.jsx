@@ -4,6 +4,7 @@ import Product from "./List/Product";
 import OrderStatus from "./List/OrderStatus";
 import Article from "./List/Article";
 import Share from "./Share";
+import Download from "./Download";
 
 const List = (props) => {
   const { data } = props;
@@ -97,11 +98,20 @@ const List = (props) => {
           }
 
           /**
-           * Product Template Render
+           * Share Template Render
            */
           if (key === "share") {
             content.push(
               <Share payload={payloadData} index={index} key={index} />
+            );
+          }
+
+          /**
+           * Download Template Render
+           */
+          if (key === "download") {
+            content.push(
+              <Download payload={payloadData} index={index} key={index} />
             );
           }
         }
