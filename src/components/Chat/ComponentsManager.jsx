@@ -22,13 +22,14 @@ import personalInfoOutline from "./Widgets/Samples/PersonalInfoOutlineWidget.jso
 import addressInfoOutline from "./Widgets/Samples/AddreessInfoOutlineWidget.json";
 import citySelectOutline from "./Widgets/Samples/CitySelectOutlineWidget.json";
 import locationOutline from "./Widgets/Samples/LocationOutlineWidget.json";
+import OrderStatus from "./Widgets/Samples/OrderStatus.json";
 import general from "./Widgets/Samples/GeneralWidget.json";
 
 /**
  * Test Specific Widget
  */
 const TEST_MODE = true;
-const SAMPLE_SCHEMA = "general";
+const SAMPLE_SCHEMA = "OrderStatus";
 
 /**
  * Allowed Widgets List
@@ -66,6 +67,7 @@ const widgetsPayloads = {
   citySelectOutline,
   locationOutline,
   general,
+  OrderStatus
 };
 
 const ComponentsManager = (props) => {

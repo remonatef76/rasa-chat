@@ -2,85 +2,89 @@
     "type": "template",
     "payload": {
         "template_type": "list",
-        "title": "Order Status Widget",
         "elements": [
             {
-                "share": {},
-                "status": [
-                    {
-                        "done": true,
-                        "showBar": true,
-                        "title": {
-                            "text": "Order Placed",
-                            "desc": "Wed, 15th Sep 2021"
-                        },
-                        "body": [
-                            {
-                                "title": "Your order has been placed.",
-                                "desc": "Wed, 15th Sep 2021 - 9:40 Pm"
-                            }
-                        ]
-                    },
-                    {
-                        "done": true,
-                        "showBar": true,
-                        "title": {
-                            "text": "Processing"
-                        },
-                        "body": [
-                            {
-                                "title": "Seller has processed your order.",
-                                "desc": "Wed, 15th Sep 2021 - 9:40 Pm"
+                "share": {
+                    "location": "bottom"
+                },
+                "orderStatus": {
+                    "title": "Order Status Widget",
+                    "body": [
+                        {
+                            "done": true,
+                            "showBar": true,
+                            "title": {
+                                "text": "Order Placed",
+                                "desc": "Wed, 15th Sep 2021"
                             },
-                            {
-                                "title": "Your item has been picked up by courier partner.",
-                                "desc": "Wed, 15th Sep 2021 - 9:40 Pm"
-                            }
-                        ]
-                    },
-                    {
-                        "done": true,
-                        "showBar": true,
-                        "title": {
-                            "text": "Shipped"
+                            "body": [
+                                {
+                                    "title": "Your order has been placed.",
+                                    "desc": "Wed, 15th Sep 2021 - 9:40 Pm"
+                                }
+                            ]
                         },
-                        "body": [
-                            {
-                                "title": "Ekart logistics - FM565655855",
-                                "desc": "Your item has been shipped"
+                        {
+                            "done": true,
+                            "showBar": true,
+                            "title": {
+                                "text": "Processing"
                             },
-                            {
-                                "desc": "Wed, 15th Sep 2021 - 9:40 Pm"
-                            }
-                        ]
-                    },
-                    {
-                        "done": false,
-                        "showBar": false,
-                        "title": {
-                            "text": "Out For Delivery"
+                            "body": [
+                                {
+                                    "title": "Seller has processed your order.",
+                                    "desc": "Wed, 15th Sep 2021 - 9:40 Pm"
+                                },
+                                {
+                                    "title": "Your item has been picked up by courier partner.",
+                                    "desc": "Wed, 15th Sep 2021 - 9:40 Pm"
+                                }
+                            ]
                         },
-                        "body": [
-                            {
-                                "title": "Your item is out for delivery",
-                                "desc": "Wed, 15th Sep 2021 - 9:40 Pm"
-                            }
-                        ]
-                    },
-                    {
-                        "done": true,
-                        "showBar": true,
-                        "title": {
-                            "text": "Delivered |"
+                        {
+                            "done": true,
+                            "showBar": true,
+                            "title": {
+                                "text": "Shipped"
+                            },
+                            "body": [
+                                {
+                                    "title": "Ekart logistics - FM565655855",
+                                    "desc": "Your item has been shipped"
+                                },
+                                {
+                                    "desc": "Wed, 15th Sep 2021 - 9:40 Pm"
+                                }
+                            ]
                         },
-                        "body": [
-                            {
-                                "title": "Your item has been delivery",
-                                "desc": "Wed, 15th Sep 2021 - 9:40 Pm"
-                            }
-                        ]
-                    }
-                ]
+                        {
+                            "done": false,
+                            "showBar": false,
+                            "title": {
+                                "text": "Out For Delivery"
+                            },
+                            "body": [
+                                {
+                                    "title": "Your item is out for delivery",
+                                    "desc": "Wed, 15th Sep 2021 - 9:40 Pm"
+                                }
+                            ]
+                        },
+                        {
+                            "done": true,
+                            "showBar": true,
+                            "title": {
+                                "text": "Delivered |"
+                            },
+                            "body": [
+                                {
+                                    "title": "Your item has been delivery",
+                                    "desc": "Wed, 15th Sep 2021 - 9:40 Pm"
+                                }
+                            ]
+                        }
+                    ]
+                }
             }
         ]
     }

@@ -1,6 +1,8 @@
 import React from "react";
 import Buttons from "./List/Buttons";
 import Product from "./List/Product";
+import OrderStatus from "./List/OrderStatus";
+import Share from "./Share";
 
 const List = (props) => {
   const { data } = props;
@@ -11,12 +13,14 @@ const List = (props) => {
     <div
       className={`rasa-list-widget rasa-green rasa-custom-chat-box ${payload.class}`}
     >
-      <div
-        className="title"
-        style={{ textAlign: payload.textAlign || "center" }}
-      >
-        {payload.title}
-      </div>
+      {payload.title && (
+        <div
+          className="title"
+          style={{ textAlign: payload.textAlign || "center" }}
+        >
+          {payload.title}
+        </div>
+      )}
 
       {payload.elements.map((element, index) => {
         const keys = Object.keys(element);
@@ -57,6 +61,29 @@ const List = (props) => {
               TEMPLATE_TYPE,
               MESSAGE_ID,
             });
+          }
+
+          /**
+           * Product Template Render
+           */
+          if (key === "OrderStatus") {
+            content = OrderStatus({
+              content,
+              payloadData,
+              index,
+              props,
+              options,
+              optionsClass,
+              TEMPLATE_TYPE,
+              MESSAGE_ID,
+            });
+          }
+
+          /**
+           * Product Template Render
+           */
+          if (key === "share") {
+            content = <Share payload={payloadData} />;
           }
         }
         return content;
