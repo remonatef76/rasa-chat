@@ -24,13 +24,14 @@ import citySelectOutline from "./Widgets/Samples/CitySelectOutlineWidget.json";
 import locationOutline from "./Widgets/Samples/LocationOutlineWidget.json";
 import OrderStatus from "./Widgets/Samples/OrderStatus.json";
 import OrderStatusMapWidget from "./Widgets/Samples/OrderStatusMapWidget.json";
+import Article from "./Widgets/Samples/Article.json";
 import general from "./Widgets/Samples/GeneralWidget.json";
 
 /**
  * Test Specific Widget
  */
 const TEST_MODE = true;
-const SAMPLE_SCHEMA = "OrderStatusMapWidget";
+const SAMPLE_SCHEMA = "Article";
 
 /**
  * Allowed Widgets List
@@ -70,6 +71,7 @@ const widgetsPayloads = {
   general,
   OrderStatus,
   OrderStatusMapWidget,
+  Article,
 };
 
 const ComponentsManager = (props) => {

@@ -2,6 +2,7 @@ import React from "react";
 import Buttons from "./List/Buttons";
 import Product from "./List/Product";
 import OrderStatus from "./List/OrderStatus";
+import Article from "./List/Article";
 import Share from "./Share";
 
 const List = (props) => {
@@ -64,10 +65,26 @@ const List = (props) => {
           }
 
           /**
-           * Product Template Render
+           * Order Status Template Render
            */
           if (key === "orderStatus") {
             content = OrderStatus({
+              content,
+              payloadData,
+              index,
+              props,
+              options,
+              optionsClass,
+              TEMPLATE_TYPE,
+              MESSAGE_ID,
+            });
+          }
+
+          /**
+           * Article Template Render
+           */
+          if (key === "article") {
+            content = Article({
               content,
               payloadData,
               index,

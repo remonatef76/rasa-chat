@@ -2,6 +2,9 @@
   .rasa-list-widget {
     @include defaultBoxStyle;
     position: relative;
+    &.no-padding {
+      padding: 0px;
+    }
     .buttons {
       &.buttons-align-center {
         display: flex;
@@ -236,6 +239,42 @@
               color: var(--rasa-white);
             }
           }
+        }
+      }
+    }
+
+    .article {
+      width: 271px;
+      overflow: hidden;
+      border-radius: 7.5px;
+      .img-container {
+        position: relative;
+        img {
+          width: 100%;
+        }
+      }
+      .desc-container {
+        padding: 11px 23px;
+        span {
+          display: inline-block;
+          font-family: var(--font-family);
+          font-style: normal;
+          font-weight: normal;
+          font-size: 8px;
+          line-height: 14px;
+          color: var(--rasa-white);
+          text-align: left;
+        }
+        .read-more {
+          font-family: var(--font-family);
+          font-style: normal;
+          font-weight: bold;
+          font-size: 10px;
+          line-height: 14px;
+          color: var(--rasa-white);
+          text-transform: uppercase;
+          text-decoration: underline;
+          cursor: pointer;
         }
       }
     }
