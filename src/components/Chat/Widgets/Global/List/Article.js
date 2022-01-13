@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import arrowDown from "./../../../../../assets/images/widgets/arrow-down-white.png";
+import pdf from "./../../../../../assets/images/widgets/pdf.png";
 
 const Fun = ({
   content,
@@ -20,7 +20,10 @@ const Fun = ({
   const data = (
     <div className="article" key={index + TEMPLATE_TYPE + show + "article"}>
       <div className="img-container">
-        <img src={payloadData.img} title={payloadData.desc} />
+        <img src={payloadData.img} title={payloadData.desc} className="img" />
+        {payloadData.fileType === "pdf" && (
+          <img src={pdf} alt={payloadData.fileType} className="file-type" />
+        )}
       </div>
       <div className="desc-container">
         <span>
