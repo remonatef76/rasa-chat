@@ -109,5 +109,32 @@
         }
       }
     }
+
+    .order-status {
+      padding-top: 26px;
+      padding-top: 19px;
+      padding-left: 15px;
+      padding-right: 29px;
+      width: 214px;
+      .bar-container {
+        .title-container {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+          .title {
+            font-family: var(--font-family);
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 21px;
+            color: var(--rasa-white);
+          }
+          .icon-down {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
   }
 }

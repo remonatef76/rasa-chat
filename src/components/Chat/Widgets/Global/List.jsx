@@ -66,7 +66,7 @@ const List = (props) => {
           /**
            * Product Template Render
            */
-          if (key === "OrderStatus") {
+          if (key === "orderStatus") {
             content = OrderStatus({
               content,
               payloadData,
@@ -83,7 +83,9 @@ const List = (props) => {
            * Product Template Render
            */
           if (key === "share") {
-            content = <Share payload={payloadData} />;
+            content.push(
+              <Share payload={payloadData} index={index} key={index} />
+            );
           }
         }
         return content;
