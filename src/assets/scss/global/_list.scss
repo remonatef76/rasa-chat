@@ -1,6 +1,7 @@
 .custom-rasa-widget-container {
   .rasa-list-widget {
     @include defaultBoxStyle;
+    position: relative;
     .buttons {
       &.buttons-align-center {
         display: flex;
