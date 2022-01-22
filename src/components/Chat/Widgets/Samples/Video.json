@@ -2,35 +2,38 @@
     "type": "template",
     "payload": {
         "template_type": "list",
-        "class": "no-padding",
+        "class": "no-padding no-bg",
         "elements": [
             {
+                "options": {
+                    "size": "small"
+                },
                 "share": {
-                    "location": "bottom"
+                    "location": "middle"
                 },
                 "video": {
-                    "img": "https://i.ibb.co/xKTZ5L2/image-6.png",
+                    "img": "https://i.ibb.co/pKLVcrj/image-5.png",
                     "source": "https://i.ibb.co/xKTZ5L2/image-6.png",
-                    "desc": "There are several reasons why a business owner might want to look into paying a third party If you’re like Brian and you’ve already thought about a solution for a problem you encounter in your life — or you’re on the path to doing so — then starting a small business may be in your future. It may also be for you if you dream of clocking out of your nine-to-five job for the last time and becoming your own boss.",
-                    "buttons": [
-                        {
-                            "type": "postback",
-                            "title": "Add Model",
-                            "background": "blue",
-                            "payload": "add_model"
-                        },
-                        {
-                            "type": "postback",
-                            "title": "Price",
-                            "payload": "price"
-                        },
-                        {
-                            "type": "postback",
-                            "title": "Colors",
-                            "payload": "colors"
-                        }
-                    ]
-                }
+                    "desc": "There are several reasons why a business owner might want to look into paying a third party If you’re like Brian and you’ve already thought about a solution for a problem you encounter in your life — or you’re on the path to doing so — then starting a small business may be in your future. It may also be for you if you dream of clocking out of your nine-to-five job for the last time and becoming your own boss."
+                },
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Add Model",
+                        "background": "green",
+                        "payload": "add_model"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Price",
+                        "payload": "price"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Colors",
+                        "payload": "colors"
+                    }
+                ]
             }
         ]
     }

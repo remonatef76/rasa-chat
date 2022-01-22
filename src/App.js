@@ -5,7 +5,7 @@ import headerIcon from "./assets/images/header/header-icon.png";
 
 function App() {
   const [TEST_MODE, setTestMode] = useState(true);
-  const [sampleSchema, setSampleSchema] = useState("article");
+  const [sampleSchema, setSampleSchema] = useState("video");
 
   return (
     <div className="App">

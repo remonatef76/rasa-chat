@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import play from "./../../../../../assets/images/widgets/play.png";
 
 const Fun = ({
@@ -18,12 +18,13 @@ const Fun = ({
   };
 
   const data = (
-    <div className="article" key={index + TEMPLATE_TYPE + show + "article"}>
+    <div
+      className="video rasa-green"
+      key={index + TEMPLATE_TYPE + show + "video"}
+    >
       <div className="img-container">
         <img src={payloadData.img} title={payloadData.desc} className="img" />
-        {payloadData.fileType === "pdf" && (
-          <img src={play} alt={payloadData.fileType} className="file-type" />
-        )}
+        <img src={play} alt={"play"} className="play" />
       </div>
       <div className="desc-container">
         <span>

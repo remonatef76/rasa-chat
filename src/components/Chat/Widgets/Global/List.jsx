@@ -3,6 +3,7 @@ import Buttons from "./List/Buttons";
 import Product from "./List/Product";
 import OrderStatus from "./List/OrderStatus";
 import Article from "./List/Article";
+import Video from "./List/Video";
 import Share from "./Share";
 import Download from "./Download";
 
@@ -49,6 +50,7 @@ const List = (props) => {
               MESSAGE_ID,
             });
           }
+
           /**
            * Product Template Render
            */
@@ -86,6 +88,22 @@ const List = (props) => {
            */
           if (key === "article") {
             content = Article({
+              content,
+              payloadData,
+              index,
+              props,
+              options,
+              optionsClass,
+              TEMPLATE_TYPE,
+              MESSAGE_ID,
+            });
+          }
+
+          /**
+           * Video Template Render
+           */
+          if (key === "video") {
+            content = Video({
               content,
               payloadData,
               index,
