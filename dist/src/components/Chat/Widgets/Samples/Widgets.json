@@ -1,0 +1,244 @@
+{
+  "widgetsPayloads": {
+    "Size Widget": {
+      "payload": {
+        "template_type": "list",
+        "title": "Select Size",
+        "elements": [
+          {
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "Small",
+                "payload": "SMALL"
+              },
+              {
+                "type": "postback",
+                "title": "Medium",
+                "payload": "MEDIUM"
+              }
+            ]
+          },
+          {
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "Large",
+                "payload": "LARGE"
+              },
+              {
+                "type": "postback",
+                "title": "Extra Large",
+                "payload": "EXTRA_LARGE"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Type Widget": {
+      "payload": {
+        "template_type": "list",
+        "title": "Select Type",
+        "elements": [
+          {
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "Collar",
+                "payload": "COLLAR"
+              }
+            ]
+          },
+          {
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "Round Neck",
+                "payload": "ROUND_NECK"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Brand Widget": {
+      "payload": {
+        "template_type": "list",
+        "title": "Brand Preference",
+        "elements": [
+          {
+            "buttons": [
+              {
+                "type": "postback",
+                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/2560px-Adidas_Logo.svg.png",
+                "title": "Addidas",
+                "payload": "ADIDAS"
+              },
+              {
+                "type": "postback",
+                "image": "https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Puma_AG.svg/1200px-Puma_AG.svg.png",
+                "title": "Puma",
+                "payload": "PUMA"
+              }
+            ]
+          },
+          {
+            "buttons": [
+              {
+                "type": "postback",
+                "image": "https://logos-world.net/wp-content/uploads/2020/04/Nike-Logo.png",
+                "title": "Nike",
+                "payload": "NIKE"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Cart Widget": {
+      "payload": {
+        "template_type": "list",
+        "title": "Your Cart",
+        "elements": [
+          {
+            "product": {
+              "title": "Adidas",
+              "image": "https://i.imgur.com/GV1w8lj.png",
+              "description": "Collar - Rs 799",
+              "defaultUnits": 1,
+              "maxUnites": 10,
+              "unitsTitle": "Unit",
+              "productId": 1
+            }
+          },
+          {
+            "product": {
+              "title": "Rolex",
+              "image": "https://i.imgur.com/GV1w8lj.png",
+              "description": "Mens - Rs 7599",
+              "defaultUnits": 2,
+              "maxUnites": 20,
+              "unitsTitle": "Unit",
+              "productId": 2
+            }
+          },
+          {
+            "product": {
+              "title": "Adidas",
+              "image": "https://i.imgur.com/GV1w8lj.png",
+              "description": "Jeans - Rs 7599",
+              "defaultUnits": 1,
+              "maxUnites": 5,
+              "unitsTitle": "Unit",
+              "productId": 2
+            }
+          },
+          {
+            "buttons": [
+              {
+                "type": "postback",
+                "background": "yellow",
+                "title": "CHECK OUT",
+                "payload": "DYNAMIC_STATE_PAYLOAD"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Payment Widget": {
+      "payload": {
+        "template_type": "list",
+        "title": "Payment",
+        "elements": [
+          {
+            "input": {
+              "type": "radio",
+              "name": "payment",
+              "payload": "CREDIT_DEBIT_ATM",
+              "title": "Credit / Debit / ATM Card"
+            }
+          },
+          {
+            "input": {
+              "type": "radio",
+              "name": "payment",
+              "payload": "NET_BANKING",
+              "title": "Net Banking"
+            }
+          },
+          {
+            "input": {
+              "type": "radio",
+              "name": "payment",
+              "payload": "CASH_ON_DELIVERY",
+              "title": "Cash on Delivery"
+            }
+          },
+          {
+            "buttons": [
+              {
+                "type": "postback",
+                "background": "yellow",
+                "title": "PROCEED",
+                "payload": "DYNAMIC_STATE_PAYLOAD"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Rate Widget": {
+      "payload": {
+        "template_type": "list",
+        "title": "Give Rating",
+        "elements": [
+          {
+            "input": {
+              "type": "rate",
+              "name": "rate",
+              "payload": "PRODUCT_ID"
+            }
+          },
+          {
+            "buttons": [
+              {
+                "type": "postback",
+                "background": "yellow",
+                "title": "SUBMIT",
+                "payload": "DYNAMIC_STATE_PAYLOAD"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "Feedback Widget": {
+      "payload": {
+        "template_type": "list",
+        "title": "Feedback",
+        "elements": [
+          {
+            "input": {
+              "type": "textarea",
+              "name": "feedback",
+              "placeholder": "Write a review",
+              "payload": "PRODUCT_ID"
+            }
+          },
+          {
+            "buttons": [
+              {
+                "type": "postback",
+                "background": "yellow",
+                "title": "SUBMIT",
+                "payload": "DYNAMIC_STATE_PAYLOAD"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

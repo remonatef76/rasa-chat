@@ -1,0 +1,10 @@
+.custom-rasa-widget-container{
+    .rasa-type-widget{
+        @include defaultBoxStyle;
+
+        .rasa-button{
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
