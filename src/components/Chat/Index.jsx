@@ -5,14 +5,22 @@ import ComponentsManager from "./ComponentsManager";
 import Icon from "./Body/Icon";
 import Header from "./Body/Header";
 import "./../../assets/scss/Chat.scss";
-import headerIcon from "./../../assets/images/header/header-icon.png";
 import { handleMessageTime, addGetLocalstorage } from "./helpers";
 // import SimpleBar from 'simplebar';
 // import 'simplebar/dist/simplebar.css';
-import ReactDOMServer from 'react-dom/server';
+import ReactDOMServer from "react-dom/server";
 import Footer from "./Body/Footer";
 
-const Chat = () => {
+const Chat = ({
+  initPayload,
+  title,
+  subtitle,
+  profileAvatar,
+  socketPath,
+  socketUrl,
+  customData,
+  botAvatar,
+}) => {
   const widget = useRef();
 
   const [chatContainer, setChatContainer] = useState(null);
@@ -33,7 +41,7 @@ const Chat = () => {
   // eslint-disable-next-line
   const HeaderContent = (
     <Header
-      icon={headerIcon}
+      icon={profileAvatar}
       hide={hide}
       title={
         <>
@@ -46,8 +54,8 @@ const Chat = () => {
   );
 
   const IconContent = ReactDOMServer.renderToString(
-    <Icon icon={"N"} cc={"rw-avatar"}></Icon>
-  )
+    <Icon icon={botAvatar} cc={"rw-avatar"}></Icon>
+  );
 
   const reSkinChat = () => {
     if (document.getElementById("customRasaWebChat")) {
@@ -83,26 +91,27 @@ const Chat = () => {
     if (
       chatHead &&
       chatContainer &&
-      chatContainer.classList.contains("rw-chat-open") && 
+      chatContainer.classList.contains("rw-chat-open") &&
       scrollContainer
     ) {
       ReactDom.render(HeaderContent, chatHead);
 
-      const footerTextarea = chatHead.nextSibling.nextSibling.querySelector(".rw-new-message");
+      const footerTextarea =
+        chatHead.nextSibling.nextSibling.querySelector(".rw-new-message");
       const btn = chatHead.nextSibling.nextSibling.querySelector(".rw-send");
       btn.disabled = false;
 
-      if(footerTextarea && !footerTextarea.classList.contains("rendered")){
-        let footerChild = document.createElement('div');
+      if (footerTextarea && !footerTextarea.classList.contains("rendered")) {
+        let footerChild = document.createElement("div");
         ReactDom.render(<Footer />, footerChild);
         footerTextarea.parentNode.prepend(footerChild);
         footerTextarea.remove();
       }
 
       const images = scrollContainer.querySelectorAll(".rw-with-avatar > img");
-      if(typeof images === "object"){
-        for(let item of images){
-          let child = document.createElement('div');
+      if (typeof images === "object") {
+        for (let item of images) {
+          let child = document.createElement("div");
           child.innerHTML = IconContent;
           child = child.firstChild;
           item.parentNode.prepend(child);
@@ -132,7 +141,7 @@ const Chat = () => {
     <div id="customRasaWebChat">
       <Widget
         ref={widget}
-        initPayload={window.location.href}
+        initPayload={initPayload}
         customComponent={(messageData) => (
           <ComponentsManager
             data={messageData}
@@ -141,13 +150,13 @@ const Chat = () => {
             addGetLocalstorage={addGetLocalstorage}
           />
         )}
-        title={"Norton customer care"}
-        subtitle={"We reply immediately"}
-        socketUrl={"http://localhost:5005"}
-        profileAvatar={headerIcon}
+        title={title}
+        subtitle={subtitle}
+        socketUrl={socketUrl}
+        profileAvatar={profileAvatar}
         showMessageDate={handleMessageTime}
-        socketPath={"/socket.io/"}
-        customData={{ language: "en" }}
+        socketPath={socketPath}
+        customData={customData}
       />
     </div>
   );
