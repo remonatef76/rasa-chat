@@ -25,6 +25,7 @@ import locationOutline from "./Widgets/Samples/LocationOutlineWidget.json";
 import OrderStatus from "./Widgets/Samples/OrderStatus.json";
 import OrderStatusMapWidget from "./Widgets/Samples/OrderStatusMapWidget.json";
 import article from "./Widgets/Samples/Article.json";
+import video from "./Widgets/Samples/Video.json";
 import general from "./Widgets/Samples/GeneralWidget.json";
 
 /**
@@ -66,12 +67,13 @@ const widgetsPayloads = {
   OrderStatus,
   OrderStatusMapWidget,
   article,
+  video,
 };
 
 const ComponentsManager = (props) => {
   const { data, TEST_MODE, sampleSchema } = props;
 
-  if (TEST_MODE) {
+  if (TEST_MODE && widgetsPayloads[sampleSchema]) {
     data.attachment.payload = widgetsPayloads[sampleSchema].payload;
   }
 
