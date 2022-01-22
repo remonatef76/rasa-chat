@@ -1,4 +1,7 @@
 import React, { Suspense, useState } from "react";
+import List from "./Widgets/Global/List";
+import Form from "./Widgets/Global/Form";
+import Map from "./Widgets/Global/Map";
 
 import size from "./Widgets/Samples/SizeWidget.json";
 import typeWidget from "./Widgets/Samples/TypeWidget.json";
@@ -27,15 +30,6 @@ import OrderStatusMapWidget from "./Widgets/Samples/OrderStatusMapWidget.json";
 import article from "./Widgets/Samples/Article.json";
 import video from "./Widgets/Samples/Video.json";
 import general from "./Widgets/Samples/GeneralWidget.json";
-
-/**
- * Allowed Widgets List
- */
-const widgets = {
-  list: React.lazy(() => import("./Widgets/Global/List")),
-  form: React.lazy(() => import("./Widgets/Global/Form")),
-  map: React.lazy(() => import("./Widgets/Global/Map")),
-};
 
 /**
  * Sample Widgets Payloads
@@ -89,14 +83,17 @@ const ComponentsManager = (props) => {
       newProps[x] = JSON.parse(JSON.stringify(props));
       newProps[x].data.attachment.payload = widgetData;
 
-      let WidgetContent = widgets[widgetData.template_type];
-      let content = WidgetContent ? (
-        <Suspense fallback={<div>Loading...</div>}>
-          <WidgetContent {...newProps[x]} />
-        </Suspense>
-      ) : (
-        ""
-      );
+      let WidgetContent;
+
+      if (widgetData.template_type === "list") {
+        WidgetContent = <List {...newProps[x]} />;
+      } else if (widgetData.template_type === "form") {
+        WidgetContent = <Form {...newProps[x]} />;
+      } else if (widgetData.template_type === "map") {
+        WidgetContent = <Map {...newProps[x]} />;
+      }
+
+      let content = WidgetContent ? WidgetContent : "";
 
       WigetsContent.push(
         <div
@@ -110,16 +107,19 @@ const ComponentsManager = (props) => {
 
     return WigetsContent;
   } else {
-    let WidgetContent = widgets[data.attachment.payload.template_type];
+    let widgetData = data.attachment.payload;
+    let WidgetContent;
+
+    if (widgetData.template_type === "list") {
+      WidgetContent = <List {...props} />;
+    } else if (widgetData.template_type === "form") {
+      WidgetContent = <Form {...props} />;
+    } else if (widgetData.template_type === "map") {
+      WidgetContent = <Map {...props} />;
+    }
     return (
       <div className="custom-rasa-widget-container">
-        {WidgetContent ? (
-          <Suspense fallback={<div>Loading...</div>}>
-            <WidgetContent {...props} />
-          </Suspense>
-        ) : (
-          ""
-        )}
+        {WidgetContent ? WidgetContent : ""}
       </div>
     );
   }
