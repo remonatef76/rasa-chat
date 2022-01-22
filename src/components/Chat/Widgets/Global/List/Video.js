@@ -12,9 +12,14 @@ const Fun = ({
   MESSAGE_ID,
 }) => {
   const [show, setShow] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
 
   const toggleShow = () => {
     setShow(!show);
+  };
+
+  const toggleShowVideo = () => {
+    setShowVideo(!showVideo);
   };
 
   const data = (
@@ -23,8 +28,22 @@ const Fun = ({
       key={index + TEMPLATE_TYPE + show + "video"}
     >
       <div className="img-container">
-        <img src={payloadData.img} title={payloadData.desc} className="img" />
-        <img src={play} alt={"play"} className="play" />
+        {showVideo && <video controls src={payloadData.src}></video>}
+        {!showVideo && (
+          <>
+            <img
+              src={payloadData.img}
+              title={payloadData.desc}
+              className="img"
+            />
+            <img
+              src={play}
+              alt={"play"}
+              className="play"
+              onClick={toggleShowVideo}
+            />
+          </>
+        )}
       </div>
       <div className="desc-container">
         <span>
