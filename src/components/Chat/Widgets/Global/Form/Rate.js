@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import StarRatings from "./../../../star-rating";
 
 const Product = ({
@@ -41,6 +41,7 @@ const Product = ({
   };
 
   const updateRating = (i, v) => {
+    console.log(i, v);
     let rates = rate;
     rates[i] = v;
     setRate(rates);

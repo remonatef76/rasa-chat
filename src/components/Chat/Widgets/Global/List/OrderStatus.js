@@ -1,16 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import arrowDown from "./../../../../../assets/images/widgets/arrow-down-white.png";
 
-const Fun = ({
-  content,
-  payloadData,
-  index,
-  props,
-  options,
-  optionsClass,
-  TEMPLATE_TYPE,
-  MESSAGE_ID,
-}) => {
+const Fun = ({ content, payloadData, index, TEMPLATE_TYPE }) => {
   const [show, setShow] = useState(false);
 
   const toggleShow = () => {
@@ -70,6 +61,7 @@ const Fun = ({
           <img
             className={`icon ${show ? "icon-down" : "icon-up"}`}
             src={arrowDown}
+            alt="arrow"
           />
         </div>
         <div className="bars">{barsContent}</div>

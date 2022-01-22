@@ -5,7 +5,7 @@ import headerIcon from "./assets/images/header/header-icon.png";
 
 function App() {
   const [TEST_MODE, setTestMode] = useState(true);
-  const [sampleSchema, setSampleSchema] = useState("video");
+  const [sampleSchema, setSampleSchema] = useState("rate");
 
   return (
     <div className="App">
@@ -20,6 +20,8 @@ function App() {
         customData={{ language: "en" }}
         TEST_MODE={TEST_MODE}
         sampleSchema={sampleSchema}
+        setSampleSchema={setSampleSchema}
+        setTestMode={setTestMode}
       />
     </div>
   );

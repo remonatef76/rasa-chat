@@ -1,16 +1,7 @@
 import React, { useState } from "react";
 import play from "./../../../../../assets/images/widgets/play.png";
 
-const Fun = ({
-  content,
-  payloadData,
-  index,
-  props,
-  options,
-  optionsClass,
-  TEMPLATE_TYPE,
-  MESSAGE_ID,
-}) => {
+const Fun = ({ content, payloadData, index, TEMPLATE_TYPE }) => {
   const [show, setShow] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
 
@@ -35,6 +26,7 @@ const Fun = ({
               src={payloadData.img}
               title={payloadData.desc}
               className="img"
+              alt="Thumbnail"
             />
             <img
               src={play}

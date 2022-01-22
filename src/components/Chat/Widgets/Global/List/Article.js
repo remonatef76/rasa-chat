@@ -1,16 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import pdf from "./../../../../../assets/images/widgets/pdf.png";
 
-const Fun = ({
-  content,
-  payloadData,
-  index,
-  props,
-  options,
-  optionsClass,
-  TEMPLATE_TYPE,
-  MESSAGE_ID,
-}) => {
+const Fun = ({ content, payloadData, index, TEMPLATE_TYPE }) => {
   const [show, setShow] = useState(false);
 
   const toggleShow = () => {
@@ -20,7 +11,12 @@ const Fun = ({
   const data = (
     <div className="article" key={index + TEMPLATE_TYPE + show + "article"}>
       <div className="img-container">
-        <img src={payloadData.img} title={payloadData.desc} className="img" />
+        <img
+          src={payloadData.img}
+          title={payloadData.desc}
+          className="img"
+          alt="Thumbnail"
+        />
         {payloadData.fileType === "pdf" && (
           <img src={pdf} alt={payloadData.fileType} className="file-type" />
         )}
