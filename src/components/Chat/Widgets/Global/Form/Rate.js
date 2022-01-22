@@ -41,20 +41,21 @@ const Product = ({
   };
 
   const updateRating = (i, v) => {
-    console.log(i, v);
     let rates = rate;
     rates[i] = v;
     setRate(rates);
-    confirm();
+    setTimeout(() => {
+      confirm();
+    }, 100);
   };
 
   return (
     <div className="rates" key={index}>
       {elements.map((item, i) => {
         return (
-          <div className="rate" key={update}>
+          <div className="rate" key={update + i}>
             <StarRatings
-              value={rate[item.name]}
+              rating={rate[item.name]}
               starRatedColor="#FFDF00"
               starHoverColor="#FFDF00"
               starEmptyColor="#FFF"
