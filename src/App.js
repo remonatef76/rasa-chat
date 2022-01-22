@@ -1,7 +1,12 @@
+import React, { useState } from "react";
+
 import Chat from "./components/Chat/Index";
 import headerIcon from "./assets/images/header/header-icon.png";
 
 function App() {
+  const [TEST_MODE, setTestMode] = useState(true);
+  const [sampleSchema, setSampleSchema] = useState("article");
+
   return (
     <div className="App">
       <Chat
@@ -13,6 +18,8 @@ function App() {
         botAvatar={"N"}
         socketPath={"/socket.io/"}
         customData={{ language: "en" }}
+        TEST_MODE={TEST_MODE}
+        sampleSchema={sampleSchema}
       />
     </div>
   );

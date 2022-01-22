@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 
 import size from "./Widgets/Samples/SizeWidget.json";
 import typeWidget from "./Widgets/Samples/TypeWidget.json";
@@ -24,14 +24,8 @@ import citySelectOutline from "./Widgets/Samples/CitySelectOutlineWidget.json";
 import locationOutline from "./Widgets/Samples/LocationOutlineWidget.json";
 import OrderStatus from "./Widgets/Samples/OrderStatus.json";
 import OrderStatusMapWidget from "./Widgets/Samples/OrderStatusMapWidget.json";
-import Article from "./Widgets/Samples/Article.json";
+import article from "./Widgets/Samples/Article.json";
 import general from "./Widgets/Samples/GeneralWidget.json";
-
-/**
- * Test Specific Widget
- */
-const TEST_MODE = true;
-const SAMPLE_SCHEMA = "Article";
 
 /**
  * Allowed Widgets List
@@ -71,13 +65,14 @@ const widgetsPayloads = {
   general,
   OrderStatus,
   OrderStatusMapWidget,
-  Article,
+  article,
 };
 
 const ComponentsManager = (props) => {
-  const { data } = props;
+  const { data, TEST_MODE, sampleSchema } = props;
+
   if (TEST_MODE) {
-    data.attachment.payload = widgetsPayloads[SAMPLE_SCHEMA].payload;
+    data.attachment.payload = widgetsPayloads[sampleSchema].payload;
   }
 
   if (

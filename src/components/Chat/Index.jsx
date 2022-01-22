@@ -6,8 +6,6 @@ import Icon from "./Body/Icon";
 import Header from "./Body/Header";
 import "./../../assets/scss/Chat.scss";
 import { handleMessageTime, addGetLocalstorage } from "./helpers";
-// import SimpleBar from 'simplebar';
-// import 'simplebar/dist/simplebar.css';
 import ReactDOMServer from "react-dom/server";
 import Footer from "./Body/Footer";
 
@@ -20,6 +18,8 @@ const Chat = ({
   socketUrl,
   customData,
   botAvatar,
+  TEST_MODE,
+  sampleSchema,
 }) => {
   const widget = useRef();
 
@@ -28,7 +28,6 @@ const Chat = ({
   const [chatShowButton, setChatShowButton] = useState(null);
   const [scrollContainer, setScrollContainer] = useState(null);
   const [chatSession, setChatSession] = useState();
-  // const [simpleBar, setSimpleBar] = useState();
 
   const hide = () => {
     if (chatShowButton) {
@@ -118,12 +117,6 @@ const Chat = ({
           item.remove();
         }
       }
-
-      // if(!simpleBar){
-      //   setSimpleBar(new SimpleBar(scrollContainer));
-      // }else{
-      //   simpleBar.recalculate();
-      // }
     }
   }, [chatHead, HeaderContent, chatContainer, scrollContainer, chatSession]);
 
@@ -145,9 +138,11 @@ const Chat = ({
         customComponent={(messageData) => (
           <ComponentsManager
             data={messageData}
+            TEST_MODE={TEST_MODE}
             widget={widget}
             submit={widgetSubmit}
             addGetLocalstorage={addGetLocalstorage}
+            sampleSchema={sampleSchema}
           />
         )}
         title={title}
