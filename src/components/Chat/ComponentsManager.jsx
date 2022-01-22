@@ -67,7 +67,7 @@ const widgetsPayloads = {
 const ComponentsManager = (props) => {
   const { data, TEST_MODE, sampleSchema } = props;
 
-  if (TEST_MODE && widgetsPayloads[sampleSchema]) {
+  if (parseInt(TEST_MODE) && widgetsPayloads[sampleSchema]) {
     data.attachment.payload = widgetsPayloads[sampleSchema].payload;
   }
 
