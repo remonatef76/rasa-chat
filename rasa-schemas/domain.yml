@@ -15,10 +15,10 @@ responses:
     - text: ""
       attachment:
         {
-          "type": "template",
+          "type": "template0",
           "payload":
             {
-              "template_type": "form",
+              "template_type": "form1",
               "elements":
                 [
                   {
