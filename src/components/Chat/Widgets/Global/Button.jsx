@@ -49,6 +49,8 @@ const Button = ({
     title = <span>{button.title}</span>;
   }
 
+  console.log(button.style);
+
   return (
     <button
       className={
@@ -57,6 +59,7 @@ const Button = ({
         (button.background ? `rasa-button-${button.background} ` : "")
       }
       onClick={confirm}
+      style={button.style ? button.style : {}}
     >
       {title}
     </button>

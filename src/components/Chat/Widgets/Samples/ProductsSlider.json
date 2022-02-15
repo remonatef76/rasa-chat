@@ -15,11 +15,14 @@
                 "type": "postback",
                 "background": "yellow",
                 "title": "CHECK OUT",
-                "payload": "1"
+                "payload": "1",
+                "style": {
+                  "background": "#FFF"
+                }
               },
               {
                 "type": "postback",
-                "background": "yellow",
+                "background": "green",
                 "title": "View",
                 "payload": "view-1"
               }
@@ -39,7 +42,6 @@
               },
               {
                 "type": "postback",
-                "background": "yellow",
                 "title": "View",
                 "payload": "view-2"
               }
