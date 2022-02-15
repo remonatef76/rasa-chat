@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Slider from "react-slick";
+import Buttons from "./Buttons";
 
 const settings = {
   className: "slider variable-width",
@@ -7,41 +8,49 @@ const settings = {
   infinite: false,
   centerMode: false,
   slidesToShow: 1,
-  // slidesToScroll: 1,
+  slidesToScroll: 1,
   variableWidth: true,
 };
 const ProductSlider = ({
-  props,
-  index,
+  content,
   payloadData,
+  index,
+  props,
+  options,
+  optionsClass,
   TEMPLATE_TYPE,
   MESSAGE_ID,
 }) => {
   return (
     <div className="products-slider" key={index}>
-      <div>
-        <h2>Variable width</h2>
-        <Slider {...settings}>
-          <div style={{ width: 100 }}>
-            <p>100</p>
-          </div>
-          <div style={{ width: 200 }}>
-            <p>200</p>
-          </div>
-          <div style={{ width: 75 }}>
-            <p>75</p>
-          </div>
-          <div style={{ width: 300 }}>
-            <p>300</p>
-          </div>
-          <div style={{ width: 225 }}>
-            <p>225</p>
-          </div>
-          <div style={{ width: 175 }}>
-            <p>175</p>
-          </div>
-        </Slider>
-      </div>
+      <Slider {...settings}>
+        {payloadData.map((item) => {
+          return (
+            <div className="product-data-container" key={item.id}>
+              <div className="product-data">
+                <img src={item.image} />
+                <div className="content">
+                  <div className="title">{item.title}</div>
+                  <div className="desc">{item.description}</div>
+
+                  <div className="product-buttons-container">
+                    {Buttons({
+                      content: [],
+                      payloadData: item.buttons,
+                      index,
+                      props,
+                      options,
+                      optionsClass,
+                      TEMPLATE_TYPE,
+                      MESSAGE_ID,
+                    })}
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </Slider>
     </div>
   );
 };
