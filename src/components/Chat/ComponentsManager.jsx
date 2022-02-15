@@ -30,6 +30,7 @@ import OrderStatusMapWidget from "./Widgets/Samples/OrderStatusMapWidget.json";
 import article from "./Widgets/Samples/Article.json";
 import video from "./Widgets/Samples/Video.json";
 import general from "./Widgets/Samples/GeneralWidget.json";
+import productsSlider from "./Widgets/Samples/ProductsSlider.json";
 
 /**
  * Sample Widgets Payloads
@@ -62,6 +63,7 @@ const widgetsPayloads = {
   OrderStatusMapWidget,
   article,
   video,
+  productsSlider,
 };
 
 const ComponentsManager = (props) => {

@@ -1,6 +1,7 @@
 import React from "react";
 import Buttons from "./List/Buttons";
 import Product from "./List/Product";
+import ProductSlider from "./List/ProductSlider";
 import OrderStatus from "./List/OrderStatus";
 import Article from "./List/Article";
 import Video from "./List/Video";
@@ -56,6 +57,22 @@ const List = (props) => {
            */
           if (key === "products") {
             content = Product({
+              content,
+              payloadData,
+              index,
+              props,
+              options,
+              optionsClass,
+              TEMPLATE_TYPE,
+              MESSAGE_ID,
+            });
+          }
+
+          /**
+           * Product Slider Template Render
+           */
+          if (key === "productsSlider") {
+            content = ProductSlider({
               content,
               payloadData,
               index,

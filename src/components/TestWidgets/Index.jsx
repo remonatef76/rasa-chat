@@ -110,6 +110,10 @@ const widgets = [
     label: "Video",
     value: "video",
   },
+  {
+    label: "Products Slider",
+    value: "productsSlider",
+  },
 ];
 
 const TestWidgets = ({

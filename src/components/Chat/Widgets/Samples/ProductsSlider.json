@@ -1,0 +1,72 @@
+{
+  "type": "template",
+  "payload": {
+    "template_type": "list",
+    "elements": [
+      {
+        "productsSlider": [
+          {
+            "title": "Adidas",
+            "image": "https://i.imgur.com/GV1w8lj.png",
+            "description": "Collar - Rs 799",
+            "id": 1,
+            "buttons": [
+              {
+                "type": "postback",
+                "background": "yellow",
+                "title": "CHECK OUT",
+                "payload": "1"
+              },
+              {
+                "type": "postback",
+                "background": "yellow",
+                "title": "View",
+                "payload": "view-1"
+              }
+            ]
+          },
+          {
+            "title": "Rolex",
+            "image": "https://i.imgur.com/GV1w8lj.png",
+            "description": "Mens - Rs 7599",
+            "id": 2,
+            "buttons": [
+              {
+                "type": "postback",
+                "background": "yellow",
+                "title": "CHECK OUT",
+                "payload": "2"
+              },
+              {
+                "type": "postback",
+                "background": "yellow",
+                "title": "View",
+                "payload": "view-2"
+              }
+            ]
+          },
+          {
+            "title": "Adidas",
+            "image": "https://i.imgur.com/GV1w8lj.png",
+            "description": "Jeans - Rs 7599",
+            "id": 3,
+            "buttons": [
+              {
+                "type": "postback",
+                "background": "yellow",
+                "title": "CHECK OUT",
+                "payload": "3"
+              },
+              {
+                "type": "postback",
+                "background": "yellow",
+                "title": "View",
+                "payload": "view-3"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
