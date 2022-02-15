@@ -58,6 +58,7 @@ const Input = ({
               value={rate[item.name]}
               onChange={(e) => updateRating(item.name, e.target.value)}
               name={item.name}
+              type={item.type || "text"}
             />
           </div>
         );

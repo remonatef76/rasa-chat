@@ -114,6 +114,10 @@ const widgets = [
     label: "Products Slider",
     value: "productsSlider",
   },
+  {
+    label: "Date Picker",
+    value: "dateWidget",
+  },
 ];
 
 const TestWidgets = ({

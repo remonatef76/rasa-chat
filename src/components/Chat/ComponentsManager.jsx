@@ -31,6 +31,7 @@ import article from "./Widgets/Samples/Article.json";
 import video from "./Widgets/Samples/Video.json";
 import general from "./Widgets/Samples/GeneralWidget.json";
 import productsSlider from "./Widgets/Samples/ProductsSlider.json";
+import dateWidget from "./Widgets/Samples/DateWidget.json";
 
 /**
  * Sample Widgets Payloads
@@ -64,6 +65,7 @@ const widgetsPayloads = {
   article,
   video,
   productsSlider,
+  dateWidget,
 };
 
 const ComponentsManager = (props) => {
