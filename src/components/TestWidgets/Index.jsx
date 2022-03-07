@@ -43,8 +43,15 @@ const TestWidgets = ({
         </div>
 
         <h3>Select Colors</h3>
-
-        <ColorsPicker />
+        <label htmlFor="mainColor">Select Main Color</label>
+        <ColorsPicker
+          variable="rasa-green"
+          color={
+            window.localStorage.getItem(`color-rasa-green`)
+              ? window.localStorage.getItem(`color-rasa-green`)
+              : "linear-gradient(270deg, #6ddda5 -14.81%, #4abdda 100%)"
+          }
+        />
       </form>
     </div>
   );

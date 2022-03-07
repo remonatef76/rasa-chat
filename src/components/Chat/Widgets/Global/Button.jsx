@@ -49,8 +49,6 @@ const Button = ({
     title = <span>{button.title}</span>;
   }
 
-  console.log(button.style);
-
   return (
     <button
       className={
