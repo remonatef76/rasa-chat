@@ -55,7 +55,7 @@ const ColorsPicker = ({ variable, color }) => {
     let colorStyle = `linear-gradient(${angle}deg, ${palette
       .map((c) => c.color.replace(/ /g, "") + " " + c.offset * 100 + "%")
       .join(", ")})`;
-    StyleSheetBuilder(variable, colorStyle);
+    StyleSheetBuilder({ variable, value: colorStyle });
     window.localStorage.setItem(`color-${variable}`, colorStyle);
   }, [palette, angle]);
 

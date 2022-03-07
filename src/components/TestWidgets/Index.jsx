@@ -43,15 +43,28 @@ const TestWidgets = ({
         </div>
 
         <h3>Select Colors</h3>
-        <label htmlFor="mainColor">Select Main Color</label>
-        <ColorsPicker
-          variable="rasa-green"
-          color={
-            window.localStorage.getItem(`color-rasa-green`)
-              ? window.localStorage.getItem(`color-rasa-green`)
-              : "linear-gradient(270deg, #6ddda5 -14.81%, #4abdda 100%)"
-          }
-        />
+        <div>
+          <label htmlFor="mainColor">Select Primary Color</label>
+          <ColorsPicker
+            variable="rasa-green"
+            color={
+              window.localStorage.getItem(`color-rasa-green`)
+                ? window.localStorage.getItem(`color-rasa-green`)
+                : "linear-gradient(270deg, #6ddda5 -14.81%, #4abdda 100%)"
+            }
+          />
+        </div>
+        <div>
+          <label htmlFor="subPrimary">Select Secondary</label>
+          <ColorsPicker
+            variable="rasa-thirdly-bg"
+            color={
+              window.localStorage.getItem(`color-rasa-thirdly-bg`)
+                ? window.localStorage.getItem(`color-rasa-thirdly-bg`)
+                : "linear-gradient(89.2deg, #44aa61 0.54%, #b4e568 99.31%)"
+            }
+          />
+        </div>
       </form>
     </div>
   );
