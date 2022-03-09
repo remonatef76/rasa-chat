@@ -65,6 +65,17 @@ const TestWidgets = ({
             }
           />
         </div>
+        <div>
+          <label htmlFor="subPrimary">Select Button Color</label>
+          <ColorsPicker
+            variable="rasa-buttons-bg"
+            color={
+              window.localStorage.getItem(`color-rasa-buttons-bg`)
+                ? window.localStorage.getItem(`color-rasa-buttons-bg`)
+                : "linear-gradient(0deg, #b4e568 -3.57%, #44aa61 96.3%)"
+            }
+          />
+        </div>
       </form>
     </div>
   );
