@@ -11,12 +11,12 @@
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: var(--rasa-thirdly-bg);
+    background: rgb(189, 189, 189);
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--rasa-secondary-buttons-bg);
+    background: rgb(209, 209, 209);
   }
 
   .rw-widget-container {
