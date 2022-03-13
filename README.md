@@ -1,30 +1,64 @@
-# rasa-chat-library
+# rasa-chat project
 
-> Made with create-react-library
+## React Project
 
-[![NPM](https://img.shields.io/npm/v/rasa-chat-library.svg)](https://www.npmjs.com/package/rasa-chat-library) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+Install packages
 
-## Install
-
-```bash
-npm install --save rasa-chat-library
+```
+yarn install
 ```
 
-## Usage
+Start developing server
 
-```jsx
-import React, { Component } from 'react'
-
-import MyComponent from 'rasa-chat-library'
-import 'rasa-chat-library/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
-}
+```
+yarn start
 ```
 
-## License
+Production
 
-MIT © [https://github.com/remonatef76](https://github.com/https://github.com/remonatef76)
+```
+yarn build
+```
+
+Run on another console the following command. It will start a rasa server on port 5005
+
+```
+rasa run --enable-api --cors "*"
+```
+
+## Poetry
+
+Install poetry using the instructions on the following link https://python-poetry.org/docs/
+
+## Rasa setup
+
+Install rasa project packages
+
+```
+cd rasa-schemas
+poetry install
+```
+
+Activate the virtual environment
+
+```
+poetry shell
+```
+
+Train Rasa model
+
+```
+rasa train
+```
+
+Run action server on a separate shell. Remember to activate the virtual environment
+
+```
+rasa run actions
+```
+
+Run on another console the following command. It will start a rasa server on port 5005
+
+```
+rasa run --enable-api --cors "*"
+```

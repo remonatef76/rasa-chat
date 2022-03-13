@@ -1,0 +1,13 @@
+{
+  "type": "template",
+  "payload": {
+    "template_type": "rate",
+    "elements": {
+      "title": "Give Rating",
+      "payload": "PRODUCT_ID",
+      "submit": {
+        "title": "SUBMIT"
+      }
+    }
+  }
+}
