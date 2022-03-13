@@ -27,7 +27,6 @@
     "react": "^16.0.0"
   },
   "devDependencies": {
-    "microbundle-crl": "^0.13.10",
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
@@ -41,13 +40,24 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-standard": "^4.0.1",
     "gh-pages": "^2.2.0",
+    "microbundle-crl": "^0.13.10",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^3.4.1",
+    "sass": "1.43.2"
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "emoji-picker-react": "^3.5.1",
+    "google-map-react": "^2.1.10",
+    "rasa-webchat": "^1.0.1",
+    "rc-color-picker": "^1.2.6",
+    "react-color": "^2.19.3",
+    "react-linear-gradient-picker": "^2.0.3",
+    "react-slick": "^0.28.1"
+  }
 }

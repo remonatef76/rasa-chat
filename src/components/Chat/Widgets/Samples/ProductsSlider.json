@@ -1,0 +1,74 @@
+{
+  "type": "template",
+  "payload": {
+    "template_type": "list",
+    "elements": [
+      {
+        "productsSlider": [
+          {
+            "title": "Adidas",
+            "image": "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Returns_1x._SY304_CB432774714_.jpg",
+            "description": "Collar - Rs 799",
+            "id": 1,
+            "buttons": [
+              {
+                "type": "postback",
+                "background": "yellow",
+                "title": "CHECK OUT",
+                "payload": "1",
+                "style": {
+                  "background": "#FFF"
+                }
+              },
+              {
+                "type": "postback",
+                "background": "green",
+                "title": "View",
+                "payload": "view-1"
+              }
+            ]
+          },
+          {
+            "title": "Rolex",
+            "image": "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Returns_1x._SY304_CB432774714_.jpg",
+            "description": "Mens - Rs 7599",
+            "id": 2,
+            "buttons": [
+              {
+                "type": "postback",
+                "background": "yellow",
+                "title": "CHECK OUT",
+                "payload": "2"
+              },
+              {
+                "type": "postback",
+                "title": "View",
+                "payload": "view-2"
+              }
+            ]
+          },
+          {
+            "title": "Adidas",
+            "image": "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_Returns_1x._SY304_CB432774714_.jpg",
+            "description": "Jeans - Rs 7599",
+            "id": 3,
+            "buttons": [
+              {
+                "type": "postback",
+                "background": "yellow",
+                "title": "CHECK OUT",
+                "payload": "3"
+              },
+              {
+                "type": "postback",
+                "background": "yellow",
+                "title": "View",
+                "payload": "view-3"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
