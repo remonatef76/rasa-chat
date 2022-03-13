@@ -86,10 +86,10 @@ const TestWidgets = ({
             />
           </div>
           <div className="buttons-container">
-            <button onClick={reset} className="reset">
+            <button onClick={reset} className="reset button">
               Reset
             </button>
-            <button onClick={integrate} className="integrate">
+            <button onClick={integrate} className="green button">
               Integrate
             </button>
           </div>
