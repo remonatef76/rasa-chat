@@ -15,7 +15,7 @@
     #6ddda5 149.79%
   );
   --rasa-thirdly-bg: linear-gradient(89.2deg, #44aa61 0%, #b4e568 99%);
-  --rasa-footer-bg: #44aa6147;
+  --rasa-footer-bg: rgb(203, 231, 211);
   --rasa-black: #3b3b3c;
   --font-family: Prompt;
   --rasa-white: #fff;

@@ -8,7 +8,7 @@ export const DEFAULT_STYLES = `
   --rasa-buttons-bg: linear-gradient(0deg, #b4e568 -3.57%, #44aa61 96.3%);
   --rasa-secondary-buttons-bg: linear-gradient(270deg, #4abdda -16.64%, #6ddda5 149.79%);
   --rasa-thirdly-bg: linear-gradient(89.2deg, #44aa61 0.54%, #b4e568 99.31%);
-  --rasa-footer-bg: #44aa6147;
+  --rasa-footer-bg: rgb(203,231,211);
   --rasa-black: #3b3b3c;
   --font-family: Prompt;
   --rasa-white: #fff;
