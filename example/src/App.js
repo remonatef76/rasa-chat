@@ -1,10 +1,11 @@
 import React from 'react'
 
-import { ExampleComponent } from 'rasa-chat-library'
-import 'rasa-chat-library/dist/index.css'
+import ExampleComponent from 'rasa-chat-library'
+import 'rasa-chat-library/dist/style.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  console.log('Here', ExampleComponent)
+  return <ExampleComponent />
 }
 
 export default App

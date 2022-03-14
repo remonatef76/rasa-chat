@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
-import Chat from './Chat'
+import Chat from './components/Chat/Index'
 import TestWidgets from './components/TestWidgets/Index'
 import headerIcon from './assets/images/header/header-icon.png'
-import mic from 'assets/images/footer/mic.png'
-import logo from 'assets/images/footer/logo.png'
-import smile from 'assets/images/footer/smile.png'
-import attachment from 'assets/images/footer/attachment.png'
 
 const DEFAULT_TEST_MODE = window.localStorage.getItem('TEST_MODE') || 1
 const DEFAULT_SAMPLE_SCHEMA =
@@ -38,6 +34,7 @@ function App() {
         setSampleSchema={setSampleSchema}
         setTestMode={setTestMode}
       />
+
       <TestWidgets
         setSampleSchema={setSampleSchema}
         setTestMode={setTestMode}
