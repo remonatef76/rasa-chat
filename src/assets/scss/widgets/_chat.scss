@@ -535,7 +535,7 @@
           .select {
             border-radius: 0px;
             select {
-              background-color: transparent;
+              background-color: transparent !important;
               filter: brightness(0) invert(1);
               // background: url(./../../images/widgets/arrow-down-white.png)
               //   no-repeat right transparent;
