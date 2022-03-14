@@ -1,47 +1,183 @@
-import React, { useState, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
+import ReactDom from 'react-dom'
+import Widget from 'rasa-webchat'
+import ComponentsManager from './components/Chat/ComponentsManager'
+import Icon from './components/Chat/Body/Icon'
+import Header from './components/Chat/Body/Header'
+import {
+  handleMessageTime,
+  addGetLocalstorage
+} from './components/Chat/helpers'
+import ReactDOMServer from 'react-dom/server'
+import Footer from './components/Chat/Body/Footer'
+import mic from 'assets/images/footer/mic.png'
+import logo from 'assets/images/footer/logo.png'
+import smile from 'assets/images/footer/smile.png'
+import attachment from 'assets/images/footer/attachment.png'
+import shareIcon from 'assets/images/widgets/share.png'
+import download from 'assets/images/widgets/download.png'
+import LocationIcon from 'assets/images/widgets/location.png'
+import arrowDown from 'assets/images/widgets/arrow-down-white.png'
+import arrowDownN from 'assets/images/widgets/arrow-down.png'
+import play from 'assets/images/widgets/play.png'
+import pdf from 'assets/images/widgets/pdf.png'
 
-import Chat from './Chat'
-import TestWidgets from './components/TestWidgets/Index'
-import headerIcon from 'assets/images/header/header-icon.png'
+const ICONS = {
+  mic,
+  logo,
+  smile,
+  attachment,
+  shareIcon,
+  download,
+  LocationIcon,
+  arrowDown,
+  play,
+  pdf,
+  arrowDownN
+}
 
-const DEFAULT_TEST_MODE = window.localStorage.getItem('TEST_MODE') || 1
-const DEFAULT_SAMPLE_SCHEMA =
-  window.localStorage.getItem('sampleSchema') || 'rate'
+const Chat = ({
+  initPayload,
+  title,
+  subtitle,
+  profileAvatar,
+  socketPath,
+  socketUrl,
+  customData,
+  botAvatar,
+  TEST_MODE,
+  sampleSchema
+}) => {
+  const widget = useRef()
 
-function App() {
-  console.log(DEFAULT_SAMPLE_SCHEMA)
-  const [TEST_MODE, setTestMode] = useState(DEFAULT_TEST_MODE)
-  const [sampleSchema, setSampleSchema] = useState(DEFAULT_SAMPLE_SCHEMA)
+  const [chatContainer, setChatContainer] = useState(null)
+  const [chatHead, setChatHead] = useState(null)
+  const [chatShowButton, setChatShowButton] = useState(null)
+  const [scrollContainer, setScrollContainer] = useState(null)
+  const [chatSession, setChatSession] = useState()
+
+  const hide = () => {
+    if (chatShowButton) {
+      chatShowButton.click()
+      return true
+    }
+    document.querySelector('.rw-launcher').click()
+  }
+
+  // eslint-disable-next-line
+  const HeaderContent = (
+    <Header
+      icon={profileAvatar}
+      hide={hide}
+      title={title}
+      subTitle={'We reply immediately'}
+    />
+  )
+
+  const IconContent = ReactDOMServer.renderToString(
+    <Icon icon={botAvatar} cc={'rw-avatar'}></Icon>
+  )
+
+  const reSkinChat = () => {
+    if (document.getElementById('customRasaWebChat')) {
+      const chat =
+        document.getElementById('customRasaWebChat').childNodes[0]
+          ?.childNodes[0]
+      const head = chat?.childNodes[0]?.childNodes[0]
+
+      const chatSohwbuttonElement = chat?.childNodes[1]
+
+      const messagesContainer = chat?.childNodes[0]?.childNodes[1]
+
+      setChatContainer(chat)
+      setChatHead(head)
+      setChatShowButton(chatSohwbuttonElement)
+      setScrollContainer(messagesContainer)
+      setChatSession(window.localStorage.getItem('chat_session'))
+    }
+
+    setTimeout(() => {
+      reSkinChat()
+    }, 100)
+  }
 
   useEffect(() => {
-    window.localStorage.setItem('TEST_MODE', TEST_MODE)
-    window.localStorage.setItem('sampleSchema', sampleSchema)
-  }, [TEST_MODE, sampleSchema])
+    if (widget.current) {
+      reSkinChat()
+    }
+    // eslint-disable-next-line
+  }, [widget])
+
+  useEffect(() => {
+    if (
+      chatHead &&
+      chatContainer &&
+      chatContainer.classList.contains('rw-chat-open') &&
+      scrollContainer
+    ) {
+      ReactDom.render(HeaderContent, chatHead)
+
+      const footerTextarea =
+        chatHead.nextSibling.nextSibling.querySelector('.rw-new-message')
+      const btn = chatHead.nextSibling.nextSibling.querySelector('.rw-send')
+      btn.disabled = false
+
+      if (footerTextarea && !footerTextarea.classList.contains('rendered')) {
+        let footerChild = document.createElement('div')
+        ReactDom.render(<Footer icons={ICONS} />, footerChild)
+        footerTextarea.parentNode.prepend(footerChild)
+        footerTextarea.remove()
+      }
+
+      const images = scrollContainer.querySelectorAll('.rw-with-avatar > img')
+      if (typeof images === 'object') {
+        for (let item of images) {
+          let child = document.createElement('div')
+          child.innerHTML = IconContent
+          child = child.firstChild
+          item.parentNode.prepend(child)
+          item.remove()
+        }
+      }
+    }
+  }, [chatHead, HeaderContent, chatContainer, scrollContainer, chatSession])
+
+  const widgetSubmit = (payload, title) => {
+    if (widget.current && widget.current.sendMessage) {
+      let params = [payload]
+      if (title) {
+        params.push(title)
+      }
+      widget.current.sendMessage(...params)
+    }
+  }
 
   return (
-    <div className='App'>
-      <Chat
-        initPayload={window.location.href}
-        title={['Norton', 'customer care']}
-        subtitle={'We reply immediately'}
-        socketUrl={'http://localhost:5005'}
-        profileAvatar={headerIcon}
-        botAvatar={'N'}
-        socketPath={'/socket.io/'}
-        customData={{ language: 'en' }}
-        TEST_MODE={TEST_MODE}
-        sampleSchema={sampleSchema}
-        setSampleSchema={setSampleSchema}
-        setTestMode={setTestMode}
-      />
-      <TestWidgets
-        setSampleSchema={setSampleSchema}
-        setTestMode={setTestMode}
-        sampleSchema={sampleSchema}
-        TEST_MODE={TEST_MODE}
+    <div id='customRasaWebChat'>
+      <Widget
+        ref={widget}
+        initPayload={initPayload}
+        customComponent={(messageData) => (
+          <ComponentsManager
+            data={messageData}
+            TEST_MODE={TEST_MODE}
+            widget={widget}
+            submit={widgetSubmit}
+            addGetLocalstorage={addGetLocalstorage}
+            sampleSchema={sampleSchema}
+            ICONS={ICONS}
+          />
+        )}
+        title={title}
+        subtitle={subtitle}
+        socketUrl={socketUrl}
+        profileAvatar={profileAvatar}
+        showMessageDate={handleMessageTime}
+        socketPath={socketPath}
+        customData={customData}
       />
     </div>
   )
 }
 
-export default App
+export default Chat
