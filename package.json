@@ -12,7 +12,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
+    "build": "microbundle-crl --format modern,cjs && sass --no-source-map src/style.scss:dist/style.css --style compressed",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
@@ -21,7 +21,7 @@
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
     "predeploy": "cd example && yarn install && yarn run build",
-    "sass": "sass --watch src/style.scss:dist/style.css",
+    "sass": "sass --no-source-map --watch src/style.scss:dist/style.css",
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
