@@ -1,41 +1,43 @@
-import React, { useState } from "react";
-import pdf from "./../../../../../assets/images/widgets/pdf.png";
+import React, { useState } from 'react'
 
-const Fun = ({ content, payloadData, index, TEMPLATE_TYPE }) => {
-  const [show, setShow] = useState(false);
+const Fun = ({ content, payloadData, index, TEMPLATE_TYPE, props }) => {
+  const { ICONS } = props
+  const { pdf } = ICONS
+
+  const [show, setShow] = useState(false)
 
   const toggleShow = () => {
-    setShow(!show);
-  };
+    setShow(!show)
+  }
 
   const data = (
-    <div className="article" key={index + TEMPLATE_TYPE + show + "article"}>
-      <div className="img-container">
+    <div className='article' key={index + TEMPLATE_TYPE + show + 'article'}>
+      <div className='img-container'>
         <img
           src={payloadData.img}
           title={payloadData.desc}
-          className="img"
-          alt="Thumbnail"
+          className='img'
+          alt='Thumbnail'
         />
-        {payloadData.fileType === "pdf" && (
-          <img src={pdf} alt={payloadData.fileType} className="file-type" />
+        {payloadData.fileType === 'pdf' && (
+          <img src={pdf} alt={payloadData.fileType} className='file-type' />
         )}
       </div>
-      <div className="desc-container">
+      <div className='desc-container'>
         <span>
           {!show
-            ? payloadData.desc.split(" ").slice(0, 17).join(" ")
-            : payloadData.desc}{" "}
-          <span className="read-more" onClick={toggleShow}>
-            {show ? "Read Less >>" : "Read More >>"}
+            ? payloadData.desc.split(' ').slice(0, 17).join(' ')
+            : payloadData.desc}{' '}
+          <span className='read-more' onClick={toggleShow}>
+            {show ? 'Read Less >>' : 'Read More >>'}
           </span>
         </span>
       </div>
     </div>
-  );
+  )
 
-  content.push(data);
-  return content;
-};
+  content.push(data)
+  return content
+}
 
-export default Fun;
+export default Fun

@@ -11,6 +11,29 @@ import {
 } from './components/Chat/helpers'
 import ReactDOMServer from 'react-dom/server'
 import Footer from './components/Chat/Body/Footer'
+import mic from 'assets/images/footer/mic.png'
+import logo from 'assets/images/footer/logo.png'
+import smile from 'assets/images/footer/smile.png'
+import attachment from 'assets/images/footer/attachment.png'
+import shareIcon from 'assets/images/widgets/share.png'
+import download from 'assets/images/widgets/download.png'
+import LocationIcon from 'assets/images/widgets/location.png'
+import arrowDown from 'assets/images/widgets/arrow-down-white.png'
+import play from 'assets/images/widgets/play.png'
+import pdf from 'assets/images/widgets/pdf.png'
+
+const ICONS = {
+  mic,
+  logo,
+  smile,
+  attachment,
+  shareIcon,
+  download,
+  LocationIcon,
+  arrowDown,
+  play,
+  pdf
+}
 
 const Chat = ({
   initPayload,
@@ -91,7 +114,7 @@ const Chat = ({
       chatContainer.classList.contains('rw-chat-open') &&
       scrollContainer
     ) {
-      // ReactDom.render(HeaderContent, chatHead)
+      ReactDom.render(HeaderContent, chatHead)
 
       const footerTextarea =
         chatHead.nextSibling.nextSibling.querySelector('.rw-new-message')
@@ -100,7 +123,7 @@ const Chat = ({
 
       if (footerTextarea && !footerTextarea.classList.contains('rendered')) {
         let footerChild = document.createElement('div')
-        ReactDom.render(<Footer />, footerChild)
+        ReactDom.render(<Footer icons={ICONS} />, footerChild)
         footerTextarea.parentNode.prepend(footerChild)
         footerTextarea.remove()
       }
@@ -141,6 +164,7 @@ const Chat = ({
             submit={widgetSubmit}
             addGetLocalstorage={addGetLocalstorage}
             sampleSchema={sampleSchema}
+            ICONS={ICONS}
           />
         )}
         title={title}

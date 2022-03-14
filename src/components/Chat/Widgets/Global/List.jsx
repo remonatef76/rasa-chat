@@ -1,45 +1,45 @@
-import React from "react";
-import Buttons from "./List/Buttons";
-import Product from "./List/Product";
-import ProductSlider from "./List/ProductSlider";
-import OrderStatus from "./List/OrderStatus";
-import Article from "./List/Article";
-import Video from "./List/Video";
-import Share from "./Share";
-import Download from "./Download";
+import React from 'react'
+import Buttons from './List/Buttons'
+import Product from './List/Product'
+import ProductSlider from './List/ProductSlider'
+import OrderStatus from './List/OrderStatus'
+import Article from './List/Article'
+import Video from './List/Video'
+import Share from './Share'
+import Download from './Download'
 
 const List = (props) => {
-  const { data } = props;
-  const payload = data.attachment.payload;
-  const TEMPLATE_TYPE = payload.template_type;
-  const MESSAGE_ID = data.id;
+  const { data } = props
+  const payload = data.attachment.payload
+  const TEMPLATE_TYPE = payload.template_type
+  const MESSAGE_ID = data.id
   return (
     <div
       className={`rasa-list-widget rasa-green rasa-custom-chat-box ${payload.class}`}
     >
       {payload.title && (
         <div
-          className="title"
-          style={{ textAlign: payload.textAlign || "center" }}
+          className='title'
+          style={{ textAlign: payload.textAlign || 'center' }}
         >
           {payload.title}
         </div>
       )}
 
       {payload.elements.map((element, index) => {
-        const keys = Object.keys(element);
-        let content = [];
-        let options = element.options;
+        const keys = Object.keys(element)
+        let content = []
+        let options = element.options
         for (let key of keys) {
-          const payloadData = element[key];
-          let optionsClass = "";
+          const payloadData = element[key]
+          let optionsClass = ''
           for (let optionKey in options) {
-            optionsClass += ` ${key}-${optionKey}-${options[optionKey]}`;
+            optionsClass += ` ${key}-${optionKey}-${options[optionKey]}`
           }
           /**
            * Button Template Render
            */
-          if (key === "buttons") {
+          if (key === 'buttons') {
             content = Buttons({
               content,
               payloadData,
@@ -48,14 +48,14 @@ const List = (props) => {
               options,
               optionsClass,
               TEMPLATE_TYPE,
-              MESSAGE_ID,
-            });
+              MESSAGE_ID
+            })
           }
 
           /**
            * Product Template Render
            */
-          if (key === "products") {
+          if (key === 'products') {
             content = Product({
               content,
               payloadData,
@@ -64,14 +64,14 @@ const List = (props) => {
               options,
               optionsClass,
               TEMPLATE_TYPE,
-              MESSAGE_ID,
-            });
+              MESSAGE_ID
+            })
           }
 
           /**
            * Product Slider Template Render
            */
-          if (key === "productsSlider") {
+          if (key === 'productsSlider') {
             content = ProductSlider({
               content,
               payloadData,
@@ -80,14 +80,14 @@ const List = (props) => {
               options,
               optionsClass,
               TEMPLATE_TYPE,
-              MESSAGE_ID,
-            });
+              MESSAGE_ID
+            })
           }
 
           /**
            * Order Status Template Render
            */
-          if (key === "orderStatus") {
+          if (key === 'orderStatus') {
             content = OrderStatus({
               content,
               payloadData,
@@ -96,14 +96,14 @@ const List = (props) => {
               options,
               optionsClass,
               TEMPLATE_TYPE,
-              MESSAGE_ID,
-            });
+              MESSAGE_ID
+            })
           }
 
           /**
            * Article Template Render
            */
-          if (key === "article") {
+          if (key === 'article') {
             content = Article({
               content,
               payloadData,
@@ -112,14 +112,14 @@ const List = (props) => {
               options,
               optionsClass,
               TEMPLATE_TYPE,
-              MESSAGE_ID,
-            });
+              MESSAGE_ID
+            })
           }
 
           /**
            * Video Template Render
            */
-          if (key === "video") {
+          if (key === 'video') {
             content = Video({
               content,
               payloadData,
@@ -128,32 +128,42 @@ const List = (props) => {
               options,
               optionsClass,
               TEMPLATE_TYPE,
-              MESSAGE_ID,
-            });
+              MESSAGE_ID
+            })
           }
 
           /**
            * Share Template Render
            */
-          if (key === "share") {
+          if (key === 'share') {
             content.push(
-              <Share payload={payloadData} index={index} key={index} />
-            );
+              <Share
+                payload={payloadData}
+                index={index}
+                key={index}
+                props={props}
+              />
+            )
           }
 
           /**
            * Download Template Render
            */
-          if (key === "download") {
+          if (key === 'download') {
             content.push(
-              <Download payload={payloadData} index={index} key={index} />
-            );
+              <Download
+                payload={payloadData}
+                index={index}
+                key={index}
+                props={props}
+              />
+            )
           }
         }
-        return content;
+        return content
       })}
     </div>
-  );
-};
+  )
+}
 
-export default List;
+export default List

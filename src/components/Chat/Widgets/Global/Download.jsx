@@ -1,15 +1,17 @@
-import React from "react";
-import icon from "./../../../../assets/images/widgets/download.png";
+import React from 'react'
 
-const Download = ({ payload, index }) => {
+const Download = ({ payload, index, props }) => {
+  const { ICONS } = props
+  const { download } = ICONS
+
   return (
     <div
       className={`rasa-download rasa-download-location-${payload?.location}`}
       key={index}
     >
-      <img src={icon} alt="Download" />
+      <img src={download} alt='Download' />
     </div>
-  );
-};
+  )
+}
 
-export default Download;
+export default Download

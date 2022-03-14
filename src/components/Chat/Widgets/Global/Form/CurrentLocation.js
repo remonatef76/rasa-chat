@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import LocationIcon from "./../../../../../assets/images/widgets/location.png";
-import GoogleMapReact from "google-map-react";
+import React, { useState } from 'react'
+import GoogleMapReact from 'google-map-react'
 
 const CurrentLocation = ({
   props,
@@ -9,70 +8,68 @@ const CurrentLocation = ({
   TEMPLATE_TYPE,
   MESSAGE_ID,
   name,
-  CUSTOM_PAYLOAD,
+  CUSTOM_PAYLOAD
 }) => {
-  const { addGetLocalstorage } = props;
-  const storageKey = `RASA_WIDGET_${TEMPLATE_TYPE}_${MESSAGE_ID}_${name}`;
-  const storageKeyPayload = `RASA_WIDGET_${TEMPLATE_TYPE}_${MESSAGE_ID}_PAYLOAD`;
-  const defaultValue = addGetLocalstorage(storageKey, null, "GET");
-  const [rate, setRate] = useState(defaultValue ? defaultValue : {});
-  const [update, setUpdate] = useState(0);
-  const elements = payloadData;
+  const { addGetLocalstorage } = props
+  const { ICONS } = props
+  const { LocationIcon } = ICONS
+  const storageKey = `RASA_WIDGET_${TEMPLATE_TYPE}_${MESSAGE_ID}_${name}`
+  const storageKeyPayload = `RASA_WIDGET_${TEMPLATE_TYPE}_${MESSAGE_ID}_PAYLOAD`
+  const defaultValue = addGetLocalstorage(storageKey, null, 'GET')
+  const [rate, setRate] = useState(defaultValue ? defaultValue : {})
+  const [update, setUpdate] = useState(0)
+  const elements = payloadData
 
   const confirm = () => {
-    let defaultPayload = addGetLocalstorage(storageKeyPayload, null, "GET");
+    let defaultPayload = addGetLocalstorage(storageKeyPayload, null, 'GET')
 
-    if (!defaultPayload || typeof defaultPayload !== "object") {
-      defaultPayload = {};
+    if (!defaultPayload || typeof defaultPayload !== 'object') {
+      defaultPayload = {}
     }
 
     for (let k in rate) {
-      defaultPayload[k] = rate[k];
-      defaultPayload[k + "_custom"] = CUSTOM_PAYLOAD;
+      defaultPayload[k] = rate[k]
+      defaultPayload[k + '_custom'] = CUSTOM_PAYLOAD
     }
 
-    addGetLocalstorage(storageKey, JSON.stringify(rate), "ADD");
-    addGetLocalstorage(
-      storageKeyPayload,
-      JSON.stringify(defaultPayload),
-      "ADD"
-    );
+    addGetLocalstorage(storageKey, JSON.stringify(rate), 'ADD')
+    addGetLocalstorage(storageKeyPayload, JSON.stringify(defaultPayload), 'ADD')
 
-    setUpdate(update + 1);
-  };
+    setUpdate(update + 1)
+  }
 
   const getValue = (i) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        const { latitude, longitude } = position.coords;
-        let rates = rate;
+        const { latitude, longitude } = position.coords
+        let rates = rate
         rates[i] = {
           lat: latitude,
-          lng: longitude,
-        };
-        setRate(rates);
-        confirm();
-      });
+          lng: longitude
+        }
+        setRate(rates)
+        confirm()
+      })
     } else {
-      alert("Geolocation is not supported by this browser.");
+      alert('Geolocation is not supported by this browser.')
     }
-  };
+  }
 
   return (
-    <div className="current-location-container" key={index}>
+    <div className='current-location-container' key={index}>
       {elements.map((item, i) => {
         return (
-          <div className="current-location" key={i + update}>
+          <div className='current-location' key={i + update}>
             <button onClick={(e) => getValue(item.name)}>
-              <img src={LocationIcon} alt="Location" />{" "}
+              <img src={LocationIcon} alt='Location' />{' '}
               <span>{item.placeholder}</span>
             </button>
 
             {item.showMap && (
-              <div className="map">
+              <div className='map'>
                 <GoogleMapReact
                   bootstrapURLKeys={{
-                    key: "AIzaSyDnOBMxd05U41lL-bjqOFjtK67u3iaqyOg",
+                    key: 'AIzaSyDnOBMxd05U41lL-bjqOFjtK67u3iaqyOg'
                   }}
                   defaultCenter={
                     rate[item.name] !== undefined
@@ -84,10 +81,10 @@ const CurrentLocation = ({
               </div>
             )}
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
-export default CurrentLocation;
+export default CurrentLocation

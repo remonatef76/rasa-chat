@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
-import mic from './../../../assets/images/footer/mic.png'
-import logo from './../../../assets/images/footer/logo.png'
-import smile from './../../../assets/images/footer/smile.png'
-import attachment from './../../../assets/images/footer/attachment.png'
 import Picker from 'emoji-picker-react'
 
 // const mic = require('/../../../assets/images/footer/mic.png')
 
-const Footer = () => {
+const Footer = ({ icons }) => {
+  const { mic, logo, smile, attachment } = icons
   const [message, setMessage] = useState('')
   const [emojiPicker, setEmojiPicker] = useState(false)
   const onEmojiClick = (event, emojiObject) => {
