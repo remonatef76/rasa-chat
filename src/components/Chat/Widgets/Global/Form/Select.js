@@ -51,6 +51,9 @@ const Select = ({
               value={rate[item.name]}
               onChange={(e) => updateRating(item.name, e.target.value)}
               name={item.name}
+              style={{
+                background: `url(${props?.ICONS?.arrowDownN}) no-repeat right`
+              }}
             >
               {item.items.map((select) => (
                 <option value={select.value} key={select.value}>

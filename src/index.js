@@ -22,7 +22,7 @@ function App() {
     <div className='App'>
       <Chat
         initPayload={window.location.href}
-        title={'Norton customer care'}
+        title={['Norton', 'customer care']}
         subtitle={'We reply immediately'}
         socketUrl={'http://localhost:5005'}
         profileAvatar={headerIcon}

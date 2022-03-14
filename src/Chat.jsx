@@ -4,7 +4,6 @@ import Widget from 'rasa-webchat'
 import ComponentsManager from './components/Chat/ComponentsManager'
 import Icon from './components/Chat/Body/Icon'
 import Header from './components/Chat/Body/Header'
-import './assets/scss/Chat.scss'
 import {
   handleMessageTime,
   addGetLocalstorage
@@ -19,6 +18,7 @@ import shareIcon from 'assets/images/widgets/share.png'
 import download from 'assets/images/widgets/download.png'
 import LocationIcon from 'assets/images/widgets/location.png'
 import arrowDown from 'assets/images/widgets/arrow-down-white.png'
+import arrowDownN from 'assets/images/widgets/arrow-down.png'
 import play from 'assets/images/widgets/play.png'
 import pdf from 'assets/images/widgets/pdf.png'
 
@@ -32,7 +32,8 @@ const ICONS = {
   LocationIcon,
   arrowDown,
   play,
-  pdf
+  pdf,
+  arrowDownN
 }
 
 const Chat = ({
@@ -68,7 +69,7 @@ const Chat = ({
     <Header
       icon={profileAvatar}
       hide={hide}
-      title={['Norton', 'customer care']}
+      title={title}
       subTitle={'We reply immediately'}
     />
   )
