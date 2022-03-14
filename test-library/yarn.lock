@@ -7482,10 +7482,10 @@ range-parser@^1.2.1, range-parser@~1.2.1:
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
-rasa-chat-library@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/rasa-chat-library/-/rasa-chat-library-1.0.0.tgz#115719f21dba2108dcb364b9ebdf9ae6bef90378"
-  integrity sha512-XD1PoG+ZnfkIAGAa0z5kuvQUxYw1tKvLxIifoWtmP2E7g6XVwVcuj5XG4DpAJ4AxZC/MopJ/PHWc7qd7NXq4BA==
+rasa-chat-library@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/rasa-chat-library/-/rasa-chat-library-1.0.2.tgz#ffb3ab6bc5f5f322d222073cf5c215e64a90ddd4"
+  integrity sha512-CDHorXUaHgy/VlLhBXwM1oYWWUh85JO/iZO2gKLgvfjrsFdbmDHqxawidMDgtv5WzsTg00uUIjWT5XILirfp9A==
   dependencies:
     emoji-picker-react "^3.5.1"
     google-map-react "^2.1.10"

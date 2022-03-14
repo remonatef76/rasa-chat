@@ -1,6 +1,6 @@
 {
   "name": "rasa-chat-library",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Made with create-react-library",
   "author": "https://github.com/remonatef76",
   "license": "MIT",
@@ -12,7 +12,8 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --format modern,cjs && sass --no-source-map src/style.scss:dist/style.css --style compressed",
+    "build": "microbundle-crl --no-compress --format modern,cjs && sass --no-source-map src/style.scss:dist/style.css --style compressed",
+    "pub": "microbundle-crl --no-compress --format modern,cjs && sass --no-source-map src/style.scss:dist/style.css --style compressed && npm publish",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
