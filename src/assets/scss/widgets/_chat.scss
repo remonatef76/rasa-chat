@@ -6,7 +6,7 @@
 
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: transparent;
   }
 
   /* Handle */
@@ -251,6 +251,12 @@
       .rw-messages-container {
         position: relative;
         padding-top: 80px;
+        overflow: hidden;
+        padding-right: 10px;
+        &:hover {
+          overflow: auto;
+          padding-right: 0px;
+        }
         .rw-with-avatar {
           .rw-avatar {
             width: 36px;
